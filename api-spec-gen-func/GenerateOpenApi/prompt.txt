@@ -1,0 +1,11 @@
+You are an API designer. Generate a complete **OpenAPI 3.0.3** specification in **YAML only** (no commentary) for **Construction Procurement API** with:
+- Entities: Vendor, Material, PurchaseOrder (+items), Delivery, Error
+- CRUD endpoints for each, plus approve/cancel for PurchaseOrder
+- Pagination & filters as described
+- CamelCase JSON
+- Request/response bodies with examples for 200 responses
+- Proper status codes (201 on create, 422 validation, etc.)
+- components/schemas reused via $ref
+- securitySchemes: apiKey in header `Ocp-Apim-Subscription-Key`
+- servers: https://api.example.corp/procurement/v1
+- Ensure all $ref resolve and path params are valid

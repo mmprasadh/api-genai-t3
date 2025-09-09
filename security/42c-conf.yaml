@@ -1,0 +1,17 @@
+version: 1
+discovery:
+  include:
+    - security/specs/openapi.yaml
+  exclude:
+    - experimental/**
+
+collection_name: "apis-${BRANCH_NAME:-main}"
+
+audit:
+  minScore: 85
+  outputs:
+    json: security/out/42c-audit.json
+    sarif: security/out/42c-audit.sarif
+  failOn:
+    severity: high
+    rules: []
