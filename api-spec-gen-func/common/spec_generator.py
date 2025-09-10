@@ -19,7 +19,7 @@ def gen_with_azure_openai(kv, prompt: str) -> str:
 def gen_with_claude(kv, prompt: str) -> str:
     import anthropic
     client = anthropic.Anthropic(api_key=_kv_get(kv, "ANTHROPIC-API-KEY"))
-    model = _kv_get(kv, "ANTHROPOPIC-MODEL") if _kv_get else os.getenv("ANTHROPIC_MODEL","claude-3-5-sonnet-20240620")
+    model = _kv_get(kv, "ANTHROPIC-MODEL") if _kv_get else os.getenv("ANTHROPIC_MODEL","claude-3-5-sonnet-20240620")
     msg = client.messages.create(model=model, max_tokens=8000, temperature=0.2,
         system="You are an expert API architect. Output valid OpenAPI 3.0.3 YAML only, no commentary.",
         messages=[{"role":"user","content":prompt}],)
