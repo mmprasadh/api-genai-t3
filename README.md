@@ -1,4 +1,4 @@
-# GenAI API Lifecycle — v5.4.3 (Full‑fat, org‑tuned, hardened)
+# GenAI API Use cases
 
 This package implements two use cases via **MCP (required)**:
 1) **Generate OpenAPI** spec from prompt/context
