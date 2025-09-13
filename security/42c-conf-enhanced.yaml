@@ -1,0 +1,127 @@
+# security/42c-conf-enhanced.yaml
+version: 1
+
+# Discovery configuration
+discovery:
+  include:
+    - security/specs/openapi.yaml
+    - security/specs/*.yaml
+    - api-spec-gen/*.yaml
+  exclude:
+    - test/**
+    - examples/**
+    - temp/**
+
+# Collection configuration
+collection_name: "genai-api-specs-${BRANCH_NAME:-main}"
+
+# Enhanced audit configuration
+audit:
+  # Strict minimum score for customer standards
+  minScore: 90
+  
+  # Multiple output formats
+  outputs:
+    json: security/out/42c-audit.json
+    sarif: security/out/42c-audit.sarif
+    html: security/out/42c-audit-report.html
+    csv: security/out/42c-audit-summary.csv
+  
+  # Strict fail conditions for customer standards
+  failOn:
+    severity: medium  # Fail on medium and above
+    score: 90         # Minimum acceptable score
+    rules:
+      # Security requirements
+      - "security-global-security-field"
+      - "security-operations-security-field"  
+      - "security-schemes-defined"
+      - "owasp-auth-insecure-schemes"
+      - "owasp-auth-insecure-apikey"
+      
+      # Data protection
+      - "owasp-data-protection-pii"
+      - "owasp-data-validation-schema"
+      - "owasp-data-validation-format"
+      
+      # API Design standards
+      - "info-contact"
+      - "info-license"
+      - "info-description"
+      - "operation-description"
+      - "operation-operationId"
+      - "operation-tags"
+      
+      # Error handling
+      - "operation-4xx-response"
+      - "operation-5xx-response"
+      - "response-schema-defined"
+      
+      # Rate limiting and throttling
+      - "rate-limiting-headers"
+      - "throttling-policy"
+
+# Platform integration
+platform:
+  upload: true
+  collectionId: "customer-api-standards"
+  url: "https://platform.42crunch.com"
+
+# Custom rules for customer standards
+rules:
+  # Override default severities to be stricter
+  overrides:
+    # Make these errors instead of warnings
+    "info-description": "error"
+    "operation-description": "error"
+    "operation-operationId": "error"
+    "operation-tags": "error"
+    "response-schema-defined": "error"
+    
+    # Custom scoring weights
+    "security-global-security-field":
+      severity: "critical"
+      score: -20
+    "owasp-auth-insecure-schemes":
+      severity: "critical" 
+      score: -15
+    "owasp-data-protection-pii":
+      severity: "high"
+      score: -10
+
+# Quality gates
+qualityGates:
+  # Minimum requirements for different environments
+  development:
+    minScore: 75
+    allowedSeverities: ["info", "low", "medium"]
+  
+  staging:
+    minScore: 85
+    allowedSeverities: ["info", "low"]
+    
+  production:
+    minScore: 95
+    allowedSeverities: ["info"]
+    maxCritical: 0
+    maxHigh: 0
+
+# Compliance frameworks
+compliance:
+  frameworks:
+    - "OWASP-API-Security-Top-10"
+    - "PCI-DSS"
+    - "GDPR"
+    - "SOX"
+  
+  # Custom compliance rules
+  customRules:
+    # GDPR compliance
+    gdpr-data-minimization:
+      description: "Ensure data minimization principles"
+      severity: "high"
+      
+    # PCI compliance  
+    pci-no-sensitive-data:
+      description: "No sensitive payment data in examples"
+      severity: "critical"
