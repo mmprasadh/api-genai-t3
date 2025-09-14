@@ -61,7 +61,7 @@ npm install -g @42crunch/api-security-audit
 ```
 
 ### **Production Deployment**
-See **[RUNBOOK_NEW.md](RUNBOOK_NEW.md)** for complete deployment guide.
+See **[RUNBOOK.md](RUNBOOK.md)** for complete deployment guide.
 
 ## 🔒 **Security Standards**
 
@@ -127,7 +127,7 @@ Automated pipeline with security gates:
 
 ## 📚 **Documentation**
 
-- **[RUNBOOK_NEW.md](RUNBOOK_NEW.md)** - Complete deployment guide
+- **[RUNBOOK.md](RUNBOOK.md)** - Complete deployment guide
 - **[Security Configuration](security/)** - 42Crunch rulesets
 - **[Scripts](scripts/)** - Deployment and automation
 - **[Testing](testing/)** - Test suites and validation
