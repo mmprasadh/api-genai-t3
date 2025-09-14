@@ -58,3 +58,84 @@ npm install -g @42crunch/api-security-audit
 
 # 5. Run complete Use Case 1
 ./scripts/use-case-1-complete.sh "Create a Banking API with account management, transactions, and security features"
+```
+
+### **Production Deployment**
+See **[RUNBOOK.md](RUNBOOK.md)** for complete deployment guide.
+
+## 🔒 **Security Standards**
+
+### **Automated Compliance**
+- **OWASP API Security Top 10** compliance
+- **GDPR** data protection requirements
+- **PCI-DSS** payment security standards
+- **SOX** audit trail requirements
+
+### **Security Features**
+- **90+ Security Score** target with 42Crunch
+- **Automatic vulnerability detection** and correction
+- **Enterprise authentication schemes** (API Key + OAuth2)
+- **Comprehensive error handling** with proper status codes
+- **Rate limiting** and throttling documentation
+
+## 🛠️ **Technologies Used**
+
+- **Azure Functions** (Python 3.11) - Serverless compute
+- **Azure OpenAI** - LLM integration
+- **42Crunch** - API security analysis
+- **Azure Key Vault** - Secrets management
+- **Azure API Management** - API gateway
+- **Spectral** - OpenAPI linting
+- **FastMCP** - Model Context Protocol server
+
+## 📋 **What's Included**
+
+### **Core Components**
+- Azure Functions with AI integration
+- 42Crunch security analysis engine
+- MCP orchestrator server
+- Deployment and provisioning scripts
+- Security rulesets and configurations
+
+### **Enhanced Features** ⭐
+- **Iterative 42Crunch integration** with automatic corrections
+- **Enterprise security rulesets** (90+ score targeting)
+- **Auto-fix engine** powered by LLM feedback
+- **Comprehensive testing suite** with security validation
+- **Multi-environment CI/CD** pipeline
+
+## 🚀 **Advanced Usage**
+
+### **Custom Security Rules**
+Configure enterprise security standards in `security/42c-conf-enhanced.yaml`
+
+### **MCP Integration**
+```bash
+cd mcp
+python orchestrator_server.py
+# Use MCP client to call: generate_openapi, validate_openapi, security_analyze
+```
+
+### **CI/CD Pipeline**
+Automated pipeline with security gates:
+1. **Generate** API spec from requirements
+2. **Analyze** with 42Crunch for vulnerabilities  
+3. **Auto-fix** security issues using LLM
+4. **Re-validate** until security score achieved
+5. **Deploy** to API Management
+6. **Generate** and publish documentation
+
+## 📚 **Documentation**
+
+- **[RUNBOOK.md](RUNBOOK.md)** - Complete deployment guide
+- **[Security Configuration](security/)** - 42Crunch rulesets
+- **[Scripts](scripts/)** - Deployment and automation
+- **[Testing](testing/)** - Test suites and validation
+
+## 🎯 **Success Metrics**
+
+- **Security Score**: 90+/100 (42Crunch)
+- **Generation Time**: <60 seconds
+- **API Standards**: OpenAPI 3.0.3 compliant
+- **Documentation**: Auto-generated in Markdown/HTML
+- **Deployment**: Fully automated with security gates
