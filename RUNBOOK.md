@@ -1,8 +1,4 @@
 **Ready to build secure, enterprise-grade APIs with AI? Start with the Quick Start guide above! 🚀**
-```
-
----
-
 ## 📖 Updated RUNBOOK.md
 
 ```markdown
