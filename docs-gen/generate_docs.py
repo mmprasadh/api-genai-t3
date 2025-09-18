@@ -45,8 +45,8 @@ Focus on clarity and practical examples that developers can immediately use."""
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ],
-            temperature=0.2,
-            max_tokens=4000
+            temperature=0.0,
+            max_tokens=10000
         )
         
         return response.choices[0].message.content
